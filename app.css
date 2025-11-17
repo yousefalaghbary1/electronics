@@ -9354,3 +9354,206 @@ salla-product-options [type=checkbox], salla-product-options [type=radio]{backgr
 .ryal::before{
   content: "🤑";
 }
+.product-details {
+    padding-top: 1.5rem !important;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .product-details {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+/* Media container */
+.product-details-media {
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .product-details-media {
+        width: 50%;
+        position: sticky;
+        top: 0;
+    }
+}
+
+/* Main slider container */
+.main-slider {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+/* Main slider images */
+.main-slider .owl-carousel .item img {
+    width: 100%;
+    height: 470px; /* fixed height for desktop */
+    object-fit: cover; /* maintain aspect ratio, crop if needed */
+    display: block;
+}
+
+/* Responsive height for mobile */
+@media (max-width: 767px) {
+   .main-slider .owl-carousel .item img {
+        height: 250px; /* smaller height on mobile */
+    }
+}
+
+/* Thumbnail slider container */
+.thumb-slider {
+    margin-top: 1rem;
+}
+
+/* Thumbnail items */
+.thumb-slider .item {
+    cursor: pointer;
+    border: 2px solid transparent !important;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: border-color 0.3s !important;
+}
+
+/* Active thumbnail */
+.thumb-slider .item.current {
+    border-color: #3b82f6 !important;
+}
+
+/* Thumbnail images and container */
+.thumb-slider .owl-item {
+    width: 100px !important;  /* force fixed width for each thumbnail */
+    flex: none;               /* prevent shrinking */
+    margin-bottom: 10px;
+}
+
+.thumb-slider .item img {
+    width: 100% !important;   /* take full width of the container */
+    height: 100px;
+    object-fit: cover;
+}
+/* Main slider nav buttons styled like best seller/testimonials nav */
+.custom-prev,
+.custom-next {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-primary);
+    border-radius: 50%;
+    color: var(--color-primary) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+}
+
+
+/* Icons (if SVG inside buttons) */
+.custom-prev svg,
+.custom-prev path,
+.custom-next svg,
+.custom-next path {
+    fill: var(--color-primary) !important;
+    stroke: var(--color-primary) !important;
+}
+
+/* Hover effect */
+.custom-prev:hover,
+.custom-next:hover {
+    background: var(--color-primary);
+    color: var(--color-primary) !important;
+}
+
+.custom-prev:hover svg,
+.custom-prev:hover path,
+.custom-next:hover svg,
+.custom-next:hover path {
+    fill: white !important;
+    stroke: white !important;
+}
+
+/* Disabled state */
+.custom-prev.disabled,
+.custom-next.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Ensure buttons stay over main slider */
+.main-slider {
+    position: relative;
+}
+
+/* Left and right placement */
+.custom-prev {
+    right: 10px;
+}
+
+.custom-next {
+    left: 10px;
+}
+
+/* Ensure buttons are always over main slider */
+.main-slider {
+    position: relative; /* make nav absolute relative to this */
+}
+
+/* For small screens, ensure nav stays centered vertically */
+@media (max-width: 1023px) {
+    .custom-prev,
+    .custom-next {
+        top: 50%;  /* stays middle of main slider */
+        transform: translateY(-50%);
+    }
+}
+
+}
+
+
+
+/* Layout adjustments for desktop */
+@media (min-width: 1024px) {
+    .product-details-media {
+        display: flex;
+        flex-direction: row-reverse; /* main slider left, thumbnails right */
+        gap: 1rem;
+    }
+
+    .main-slider-container {
+        flex: 1;
+    }
+
+    .thumb-slider {
+        width: 100px; 
+    }
+
+    /* Make thumbnails stack vertically */
+    #thumb-slider .owl-stage {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    #thumb-slider .owl-item {
+        margin-bottom: 10px;
+    }
+
+    /* Active thumbnail */
+    #thumb-slider .item.current {
+        border-color: #3b82f6;
+    }
+}
+
+/* Make thumbnail slider responsive for mobile */
+@media (max-width: 1023px) {
+    .thumb-slider .item img {
+        width: 70px;
+        height: 70px;
+    }
+}
