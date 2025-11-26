@@ -9907,12 +9907,13 @@ salla-product-options [type=checkbox], salla-product-options [type=radio]{backgr
 ----------------------------------------- */
 img.logo {
   height: 60px;
-  width: 75px;
+  width: 60px;
 }
 
 @media (max-width: 1024px) {
   img.logo {
-    width: 60px;
+ height: 70px;
+  width: 70px;
   }
 }
 
